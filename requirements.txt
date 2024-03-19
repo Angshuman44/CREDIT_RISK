@@ -1,0 +1,13 @@
+numpy 
+pandas
+python-dotenv
+mysql-connector-python
+pymysql
+scikit-learn
+seaborn
+catboost
+xgboost
+flask
+svm
+typing
+-e .
