@@ -10,4 +10,6 @@ xgboost
 flask
 svm
 typing
--e .
+datetime
+dataclasses
+#-e .  # Uncomment this if yopu want to setup the file CREDIT_RISK.egg-info
