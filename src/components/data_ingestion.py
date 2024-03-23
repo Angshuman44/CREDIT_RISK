@@ -10,7 +10,7 @@ from src.components.model_trainer import ModelTrainer
 from sklearn.model_selection import train_test_split
 
 from dataclasses import dataclass
-
+import pandas as pd
 
 @dataclass
 class DataIngestionConfig:
@@ -61,6 +61,21 @@ if __name__=='__main__':
     obj=DataIngestion()
     traindata,testdata = obj.initiate_data_ingestion('notebook/Cleaned_and_processed.csv')
     objtransform= DataTransformation()
+    df=pd.read_csv(traindata)
+    print(df.columns)
+    print(df.info())
+    unique_values_dict = {}
+    
+    categorical_columns = df.select_dtypes(include=['object', 'category']).columns
+
+    # Iterate over each column and store unique values in a dictionary
+    for column in categorical_columns:
+        unique_values_dict[column] = df[column].unique()
+
+    # Print the dictionary
+    print(unique_values_dict)
+
     trainarr,testarr,_=objtransform.initiate_data_transormation(traindata,testdata)
+    print(trainarr.shape)
     objmodel=ModelTrainer()
     print(objmodel.initiate_model_trainer(trainarr,testarr))

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Credit Card Approval Prediction</title>
+     <style>
+        h1.title {
+            font-size: 100px; /* Increase the font size as desired */
+            margin-bottom: 20px;
+        }
+        
+        body {
+            font-family: Montserrat, Lora;
+            background-color: #f9f9f9; /* Light gray */
+            margin: 0;
+            padding: 0;
+        }
+    
+        .login-container {
+            max-width: 1000px;
+            margin: 100px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    
+        .login {
+            background-color: #e6e6fa; /* Lavender */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+    
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+    
+            to {
+                opacity: 1;
+            }
+        }
+    
+        h1 {
+            color: #333333; /* Dark gray */
+            margin-bottom: 20px;
+        }
+    
+        .form-label {
+            font-weight: bold;
+            color: #333333; /* Dark gray */
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+    
+        .form-control {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ffcc80; /* Light yellow */
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+    
+        .form-control:focus {
+            border-color: #ffcc00; /* Dark yellow */
+            outline: none;
+        }
+    
+        .btn-primary {
+            background-color: #ff6666; /* Pink */
+            color: #ffffff; /* White */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        .btn-primary:hover {
+            background-color: #cc4d4d; /* Dark pink */
+        }
+    
+        h2 {
+            margin-top: 20px;
+            color: 333333; /* Dark gray */
+            animation: fadeIn 1s;
+        }
+    
+    </style>
+    
+    
+</head>
+<body>
+    <div class="login">
+       <h1>Credit Card Approval Prediction</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select class="form-control" name="gender" required>
+                <option selected disabled value="">Select Gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Car Owner</label>
+            <select class="form-control" name="car_owner" required>
+                <option selected disabled value="">Owns a Car?</option>
+                <option value="Y">Yes</option>
+                <option value="N">No</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Property Owner</label>
+            <select class="form-control" name="property_owner" required>
+                <option selected disabled value="">Owns a Property?</option>
+                <option value="Y">Yes</option>
+                <option value="N">No</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Number of Children</label>
+            <input class="form-control" type="number" name="children" placeholder="Number of Children" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Annual Income</label>
+            <input class="form-control" type="number" name="annual_income" placeholder="Annual Income" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Type of Income</label>
+            <select class="form-control" name="type_income" required>
+                <option selected disabled value="">Type of Income</option>
+                <option value="Commercial associate">Commercial Associate</option>
+                <option value="Pensioner">Pensioner</option>
+                <option value="Working">Working</option>
+                <option value="State servant">State Servant</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Education Level</label>
+            <select class="form-control" name="education" required>
+                <option selected disabled value="">Education Level</option>
+                <option value="Higher education">Higher Education</option>
+                <option value="Secondary / secondary special">Secondary / Secondary Special</option>
+                <option value="Incomplete higher">Incomplete Higher</option>
+                <option value="Lower secondary">Lower Secondary</option>
+                <option value="Academic degree">Academic Degree</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Marital Status</label>
+            <select class="form-control" name="marital_status" required>
+                <option selected disabled value="">Marital Status</option>
+                <option value="Married">Married</option>
+                <option value="Widow">Widow</option>
+                <option value="Civil marriage">Civil Marriage</option>
+                <option value="Single / not married">Single / Not Married</option>
+                <option value="Separated">Separated</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Housing Type</label>
+            <select class="form-control" name="housing_type" required>
+                <option selected disabled value="">Housing Type</option>
+                <option value="With parents">With Parents</option>
+                <option value="Municipal apartment">Municipal Apartment</option>
+                <option value="House / apartment">House / Apartment</option>
+                <option value="Rented apartment">Rented Apartment</option>
+                <option value="Office apartment">Office Apartment</option>
+                <option value="Co-op apartment">Co-op Apartment</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Age in Years</label>
+            <input class="form-control" type="number" name="age_years" placeholder="Age in Years" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Years Employed</label>
+            <input class="form-control" type="number" name="years_employed" placeholder="Years Employed" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Number of Family Members</label>
+            <input class="form-control" type="number" name="family_members" placeholder="Number of Family Members" required />
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict Credit Card Approval Probability" />
+        </div>
+    </form>
+    <p>The probability of Credit Card approval is: <span style="color: blue;">{{predicted_result}}</span></p>
+   </div>
+</body>
+</html>

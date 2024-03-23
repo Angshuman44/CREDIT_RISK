@@ -93,7 +93,10 @@ class ModelTrainer:
             #     raise ValueError("The selected model has no 'fit' method, so it cannot be fitted with training data.")
             # best_model.fit(X_train, y_train)
             
-            
+            save_object(
+                file_path=self.model_trainer_config.trained_model_file_path,
+                obj=best_model
+            )            
             predicted = best_model.predict(X_test)
 
             accuracy, precision, recall, f1 = self.eval_metrics(y_test, predicted)  # Replace with your evaluation method
