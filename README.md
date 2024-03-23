@@ -4,21 +4,20 @@ This repository contains a project focused on predicting individuals' chances of
 
 ### Data Input Requirements
 
-The project requires a dataset consisting of diverse demographic and financial attributes, including but not limited to:
+The project requires input data consisting of various demographic and financial attributes. These attributes are collected through a web form and include:
 
-- **Gender**: The gender of the applicant (e.g., Male, Female).
-- **Age**: The age of the applicant in years.
-- **Marital Status**: The marital status of the applicant (e.g., Married, Single, Divorced).
-- **Education Level**: The highest level of education attained by the applicant (e.g., High School, Bachelor's Degree, Master's Degree).
-- **Income**: The annual income of the applicant.
-- **Employment Status**: The employment status of the applicant (e.g., Employed, Unemployed, Self-Employed).
-- **Number of Dependents**: The number of dependents or family members supported by the applicant.
-- **Credit History**: The applicant's credit history, including factors such as past loans, repayment behavior, and credit score.
-- **Property Ownership**: Whether the applicant owns any property or real estate.
-- **Debt-to-Income Ratio**: The ratio of the applicant's debt obligations to their gross income.
-- **Housing Type**: The type of housing the applicant resides in (e.g., Rent, Own).
-- **Previous Credit Card Usage**: Information about the applicant's previous use of credit cards, if any.
-- **Other Financial Obligations**: Any other financial commitments or obligations the applicant may have.
+- **Gender**: The gender of the applicant.
+- **Car Owner**: Whether the applicant owns a car.
+- **Property Owner**: Whether the applicant owns any property or real estate.
+- **Number of Children**: The number of dependents or family members supported by the applicant.
+- **Annual Income**: The annual income of the applicant.
+- **Type of Income**: The type of income earned by the applicant (e.g., Commercial associate, Pensioner, Working, State servant).
+- **Education Level**: The highest level of education attained by the applicant.
+- **Marital Status**: The marital status of the applicant.
+- **Housing Type**: The type of housing the applicant resides in.
+- **Age in Years**: The age of the applicant.
+- **Years Employed**: The number of years the applicant has been employed.
+- **Number of Family Members**: The total number of family members supported by the applicant.
 
 By analyzing these features and their relationships with credit card approval decisions, the project aims to develop predictive models that can estimate the probability of an individual's credit card application being approved. Through this analysis, users can gain insights into the factors influencing credit card approval decisions and make informed decisions regarding their financial choices.
 
