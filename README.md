@@ -21,3 +21,15 @@ The project requires a dataset consisting of diverse demographic and financial a
 - **Other Financial Obligations**: Any other financial commitments or obligations the applicant may have.
 
 By analyzing these features and their relationships with credit card approval decisions, the project aims to develop predictive models that can estimate the probability of an individual's credit card application being approved. Through this analysis, users can gain insights into the factors influencing credit card approval decisions and make informed decisions regarding their financial choices.
+
+## Model Performance Summary
+
+Here's a summary of the performance of various machine learning models on our dataset:
+
+- **Support Vector Machine**: Accuracy - 77.60%
+- **Logistic Regression**: Accuracy - 63.64%
+- **XGBoost**: Accuracy - 90.26%
+- **Random Forest**: Accuracy - 91.23%
+- **Decision Tree**: Accuracy - 84.74%
+
+Based on these results, the Random Forest classifier emerges as the top-performing model with an accuracy of 91.23%. This model outperforms others in accurately predicting outcomes on the dataset.
