@@ -39,6 +39,7 @@ The prediction app was made using Flask, and the webapp has the interface as bel
 
 
 Please follow the steps in order to use the model:
-a) Clone the repository
-b) run setup.py
-c) run app.py
+- a) Clone the repository
+- b) run setup.py
+- c) run app.py
+- d) open localhost/predictdata
