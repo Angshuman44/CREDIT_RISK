@@ -4,8 +4,8 @@ from src.logger import logging
 from src.exception import CustomException
 import pandas as pd
 from src.utils import read_sql_data
-
-
+from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainer
 
 from sklearn.model_selection import train_test_split
 
@@ -59,4 +59,8 @@ class DataIngestion:
 
 if __name__=='__main__':
     obj=DataIngestion()
-    obj.initiate_data_ingestion('notebook/Cleaned_and_processed.csv')
+    traindata,testdata = obj.initiate_data_ingestion('notebook/Cleaned_and_processed.csv')
+    objtransform= DataTransformation()
+    trainarr,testarr,_=objtransform.initiate_data_transormation(traindata,testdata)
+    objmodel=ModelTrainer()
+    print(objmodel.initiate_model_trainer(trainarr,testarr))

@@ -35,9 +35,6 @@ class DataTransformation:
             numerical_columns= [col for col in train_df.columns if col != target_column_name and train_df[col].dtype != object]
 
             categorical_columns = [col for col in train_df.columns if col != target_column_name and train_df[col].dtype == object]
-            print(numerical_columns)
-            print("")
-            print(categorical_columns)
             num_pipeline=Pipeline(steps=[
                 ("imputer",SimpleImputer(strategy='median')),
                 ('scalar',MaxAbsScaler())
@@ -105,6 +102,7 @@ class DataTransformation:
                 file_path=self.data_transformation_config.preprocessor_obj_file_path,
                 obj=preprocessing_obj
             )
+
             return (
 
                 train_arr,
