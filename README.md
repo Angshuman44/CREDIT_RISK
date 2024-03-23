@@ -33,3 +33,5 @@ Here's a summary of the performance of various machine learning models on our da
 - **Decision Tree**: Accuracy - 84.74%
 
 Based on these results, the Random Forest classifier emerges as the top-performing model with an accuracy of 91.23%. This model outperforms others in accurately predicting outcomes on the dataset.
+The prediction app was made using Flask, and the webapp has the interface as below:
+![Screenshot from 2024-03-23 21-24-30](https://github.com/Angshuman44/CREDIT_RISK/assets/113175952/c559cc81-c873-4e17-b393-395db195d319)
